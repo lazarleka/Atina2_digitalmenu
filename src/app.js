@@ -511,11 +511,13 @@ function render() {
 
   app.innerHTML = `
     <div class="app-frame">
-      <div class="column-rail column-left" aria-hidden="true">
-        <img class="column" src="/atina-column-engraved.png" alt="" />
-      </div>
-      <div class="column-rail column-right" aria-hidden="true">
-        <img class="column" src="/atina-column-engraved.png" alt="" />
+      <div class="column-stage" aria-hidden="true">
+        <div class="column-rail column-left">
+          <img class="column" src="/atina-column-engraved.png" alt="" />
+        </div>
+        <div class="column-rail column-right">
+          <img class="column" src="/atina-column-engraved.png" alt="" />
+        </div>
       </div>
       ${header(text)}
       ${route ? emptySection(route, text) : home(text)}
