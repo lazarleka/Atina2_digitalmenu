@@ -1,3 +1,4 @@
+import './styles.css';
 const COPY = {
   me: {
     drinksMenu: "Karta pića",
