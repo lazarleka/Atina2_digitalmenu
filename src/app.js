@@ -133,7 +133,7 @@ const MENU_ITEMS = {
   ],
   juice: [
     { label: { me: "Limunada", en: "Lemonade", ru: "Лимонад" }, price: "2,20 €" },
-    { label: { me: "Pomorandza", en: "Fresh Orange juice", ru: "Свежевыжатый апельсиновый сок" }, price: "3,00 €" },
+    { label: { me: "Pomorandža", en: "Fresh Orange juice", ru: "Свежевыжатый апельсиновый сок" }, price: "3,00 €" },
   ],
   breakfast: [
     { icon: "egg-fried", label: { me: "Atina doručak", en: "Atina breakfast", ru: "Завтрак Atina" } },
