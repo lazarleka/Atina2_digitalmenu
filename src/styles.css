@@ -260,7 +260,8 @@ body.splash-arrived .brand img {
   bottom: -4px;
   width: auto;
   max-width: none;
-  height: calc(100dvh - var(--topbar-height));
+  height: calc(100vh - var(--topbar-height));
+  height: calc(100svh - var(--topbar-height));
   transform: translateX(-50%) scaleX(var(--column-scale-x));
   opacity: 0.68;
   filter: saturate(0.76) contrast(0.98) drop-shadow(0 14px 18px rgba(39, 29, 15, 0.2));
