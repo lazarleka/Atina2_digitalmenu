@@ -102,7 +102,7 @@ const MENU_ITEMS = {
     { label: { me: "M. Graševina", en: "M. Graševina", ru: "M. Грашевина" }, prices: [{ label: { me: " 0,187 l", en: " 0.187 l", ru: " 0,187 л" }, value: "4,50 €" }, { label: { me: " 0,7 l", en: " 0.7 l", ru: " 0,7 л" }, value: "26,00 €" }] },
   ],
   aperitif: [
-    { label: { me: "Amaro", en: "Amaro", ru: "Амаро" }, price: "2,70 €" },
+    { label: { me: "Amaro Montenegro ", en: "Amaro Montenegro", ru: "Amaro Montenegro" }, price: "2,70 €" },
     { label: { me: "Gorki List", en: "Gorki List", ru: "Горький Лист" }, price: "2,50 €" },
     { label: { me: "Baileys", en: "Baileys", ru: "Бейлис" }, price: "2,70 €" },
     { label: { me: "Gin Tonic", en: "Gin and tonic", ru: "Джин-тоник" }, price: "3,50 €" },
@@ -133,7 +133,7 @@ const MENU_ITEMS = {
   ],
   juice: [
     { label: { me: "Limunada", en: "Lemonade", ru: "Лимонад" }, price: "2,20 €" },
-    { label: { me: "Cijeđeni sok", en: "Freshly squeezed juice", ru: "Свежевыжатый сок" }, price: "3,00 €" },
+    { label: { me: "Pomorandza", en: "Fresh Orange juice", ru: "Свежевыжатый апельсиновый сок" }, price: "3,00 €" },
   ],
   breakfast: [
     { icon: "egg-fried", label: { me: "Atina doručak", en: "Atina breakfast", ru: "Завтрак Atina" } },
