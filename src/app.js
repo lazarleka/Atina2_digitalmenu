@@ -74,41 +74,55 @@ const FOOD = [
 
 const MENU_ITEMS = {
   hot: [
-    { icon: "coffee", label: { me: "Espresso", en: "Espresso", ru: "Эспрессо" } },
-    { icon: "coffee", label: { me: "Domaća kafa", en: "Turkish coffee", ru: "Кофе по-турецки" } },
-    { icon: "coffee", label: { me: "Cappuccino", en: "Cappuccino", ru: "Капучино" } },
-    { icon: "milk", label: { me: "Caffe latte", en: "Caffe latte", ru: "Кофе латте" } },
-    { icon: "coffee", label: { me: "Nescafé", en: "Nescafé", ru: "Нескафе" } },
-    { icon: "leaf", label: { me: "Čaj", en: "Tea", ru: "Чай" } },
-    { icon: "cup-soda", label: { me: "Topla čokolada", en: "Hot chocolate", ru: "Горячий шоколад" } },
+    { label: { me: "Espresso", en: "Espresso", ru: "Эспрессо" }, price: "1,40 €" },
+    { label: { me: "Macchiato", en: "Macchiato", ru: "Макиато" }, price: "1,50 €" },
+    { label: { me: "Velika kafa sa mlijekom", en: "Large coffee with milk", ru: "Большой кофе с молоком" }, price: "1,70 €" },
+    { label: { me: "Cappuccino", en: "Cappuccino", ru: "Капучино" }, price: "1,90 €" },
+    { label: { me: "Espresso sa sojinim mlijekom", en: "Espresso with soy milk", ru: "Эспрессо с соевым молоком" }, price: "1,80 €" },
+    { label: { me: "Velika kafa sa sojinim mlijekom", en: "Large coffee with soy milk", ru: "Большой кофе с соевым молоком" }, price: "2,20 €" },
+    { label: { me: "Nes Caffe", en: "Nes Caffe", ru: "Нес Кафе" }, price: "2,50 €" },
+    { label: { me: "Čaj", en: "Tea", ru: "Чай" }, price: "1,50 €" },
+    { label: { me: "Americano", en: "Americano", ru: "Американо" }, price: "1,40 €" },
   ],
   soft: [
-    { icon: "droplet", label: { me: "Negazirana voda", en: "Still water", ru: "Вода без газа" } },
-    { icon: "waves", label: { me: "Gazirana voda", en: "Sparkling water", ru: "Газированная вода" } },
-    { icon: "cup-soda", label: { me: "Coca-Cola", en: "Coca-Cola", ru: "Кока-Кола" } },
-    { icon: "citrus", label: { me: "Fanta", en: "Fanta", ru: "Фанта" } },
-    { icon: "cup-soda", label: { me: "Sprite", en: "Sprite", ru: "Спрайт" } },
-    { icon: "glass-water", label: { me: "Tonic", en: "Tonic", ru: "Тоник" } },
+    { label: { me: "Mala voda 0,33 l", en: "Small water 0.33 l", ru: "Малая вода 0,33 л" }, price: "1,50 €" },
+    { label: { me: "Velika voda", en: "Large water", ru: "Большая вода" }, price: "3,50 €" },
+    { label: { me: "Gazirani sokovi", en: "Carbonated soft drinks", ru: "Газированные напитки" }, price: "2,50 €" },
+    { label: { me: "Voćni sokovi", en: "Fruit juices", ru: "Фруктовые соки" }, price: "2,50 €" },
+    { label: { me: "Cedevita", en: "Cedevita", ru: "Цедевита" }, price: "2,20 €" },
+    { label: { me: "Red Bull", en: "Red Bull", ru: "Ред Булл" }, price: "3,70 €" },
+    { label: { me: "Guarana", en: "Guarana", ru: "Гуарана" }, price: "2,70 €" },
+    { label: { me: "Ultra", en: "Ultra", ru: "Ультра" }, price: "2,70 €" },
   ],
   wine: [
-    { icon: "wine", label: { me: "Bijelo vino", en: "White wine", ru: "Белое вино" } },
-    { icon: "wine", label: { me: "Crveno vino", en: "Red wine", ru: "Красное вино" } },
-    { icon: "wine", label: { me: "Rosé vino", en: "Rosé wine", ru: "Розовое вино" } },
-    { icon: "grape", label: { me: "Pjenušavo vino", en: "Sparkling wine", ru: "Игристое вино" } },
+    { label: { me: "M. Chardonnay", en: "M. Chardonnay", ru: "M. Шардоне" }, prices: [{ label: { me: "Čaša 0,187 l", en: "Glass 0.187 l", ru: "Бокал 0,187 л" }, value: "3,80 €" }, { label: { me: "Flaša 0,7 l", en: "Bottle 0.7 l", ru: "Бутылка 0,7 л" }, value: "18,00 €" }] },
+    { label: { me: "M. Rosé", en: "M. Rosé", ru: "M. Розе" }, prices: [{ label: { me: "Čaša 0,187 l", en: "Glass 0.187 l", ru: "Бокал 0,187 л" }, value: "3,80 €" }, { label: { me: "Flaša 0,7 l", en: "Bottle 0.7 l", ru: "Бутылка 0,7 л" }, value: "18,00 €" }] },
+    { label: { me: "M. Vranac", en: "M. Vranac", ru: "M. Вранац" }, prices: [{ label: { me: "Čaša 0,187 l", en: "Glass 0.187 l", ru: "Бокал 0,187 л" }, value: "3,80 €" }, { label: { me: "Flaša 0,7 l", en: "Bottle 0.7 l", ru: "Бутылка 0,7 л" }, value: "18,00 €" }] },
+    { label: { me: "M. Ž. Cuvée", en: "M. Ž. Cuvée", ru: "M. Ж. Кюве" }, prices: [{ label: { me: "Čaša 0,187 l", en: "Glass 0.187 l", ru: "Бокал 0,187 л" }, value: "5,00 €" }, { label: { me: "Flaša 0,7 l", en: "Bottle 0.7 l", ru: "Бутылка 0,7 л" }, value: "30,00 €" }] },
+    { label: { me: "M. Graševina", en: "M. Graševina", ru: "M. Грашевина" }, prices: [{ label: { me: "Čaša 0,187 l", en: "Glass 0.187 l", ru: "Бокал 0,187 л" }, value: "4,50 €" }, { label: { me: "Flaša 0,7 l", en: "Bottle 0.7 l", ru: "Бутылка 0,7 л" }, value: "26,00 €" }] },
   ],
   aperitif: [
-    { icon: "martini", label: { me: "Aperol", en: "Aperol", ru: "Апероль" } },
-    { icon: "martini", label: { me: "Campari", en: "Campari", ru: "Кампари" } },
-    { icon: "martini", label: { me: "Martini", en: "Martini", ru: "Мартини" } },
-    { icon: "glass-water", label: { me: "Vermut", en: "Vermouth", ru: "Вермут" } },
+    { label: { me: "Amaro", en: "Amaro", ru: "Амаро" }, price: "2,70 €" },
+    { label: { me: "Gorki List", en: "Gorki List", ru: "Горький Лист" }, price: "2,50 €" },
+    { label: { me: "Baileys", en: "Baileys", ru: "Бейлис" }, price: "2,70 €" },
+    { label: { me: "Gin Tonic", en: "Gin and tonic", ru: "Джин-тоник" }, price: "3,50 €" },
   ],
   spirits: [
-    { icon: "grape", label: { me: "Lozova rakija", en: "Grape rakija", ru: "Виноградная ракия" } },
-    { icon: "glass-water", label: { me: "Šljivovica", en: "Plum rakija", ru: "Сливовица" } },
-    { icon: "glass-water", label: { me: "Viski", en: "Whisky", ru: "Виски" } },
-    { icon: "glass-water", label: { me: "Vodka", en: "Vodka", ru: "Водка" } },
-    { icon: "glass-water", label: { me: "Gin", en: "Gin", ru: "Джин" } },
-    { icon: "glass-water", label: { me: "Rum", en: "Rum", ru: "Ром" } },
+    { label: { me: "Loza Institut", en: "Loza Institut", ru: "Лоза Институт" }, price: "3,00 €" },
+    { label: { me: "Prvijenac", en: "Prvijenac", ru: "Првийенац" }, price: "3,00 €" },
+    { label: { me: "Viljamovka", en: "Pear rakija", ru: "Грушевая ракия" }, price: "2,50 €" },
+    { label: { me: "Dunja / Kajsija", en: "Quince / Apricot rakija", ru: "Айва / Абрикосовая ракия" }, price: "2,70 €" },
+    { label: { me: "Peach šljiva", en: "Peach plum", ru: "Персик-слива" }, price: "3,30 €" },
+    { label: { me: "Smirnoff", en: "Smirnoff", ru: "Смирнофф" }, price: "2,70 €" },
+    { label: { me: "Gin", en: "Gin", ru: "Джин" }, price: "2,70 €" },
+    { label: { me: "Red Label", en: "Red Label", ru: "Ред Лейбл" }, price: "3,00 €" },
+    { label: { me: "Black Label", en: "Black Label", ru: "Блэк Лейбл" }, price: "4,00 €" },
+    { label: { me: "Ballantine's", en: "Ballantine's", ru: "Баллантайнс" }, price: "2,50 €" },
+    { label: { me: "Jack Daniel's", en: "Jack Daniel's", ru: "Джек Дэниелс" }, price: "3,50 €" },
+    { label: { me: "Chivas", en: "Chivas", ru: "Чивас" }, price: "4,00 €" },
+    { label: { me: "Jameson", en: "Jameson", ru: "Джемесон" }, price: "3,30 €" },
+    { label: { me: "Jägermeister", en: "Jägermeister", ru: "Егермейстер" }, price: "2,70 €" },
+    { label: { me: "Travarica", en: "Herbal rakija", ru: "Травяная ракия" }, price: "2,70 €" },
   ],
   beer: [
     { icon: "beer", label: { me: "Točeno pivo", en: "Draft beer", ru: "Разливное пиво" } },
@@ -118,11 +132,8 @@ const MENU_ITEMS = {
     { icon: "beer", label: { me: "Bezalkoholno pivo", en: "Non-alcoholic beer", ru: "Безалкогольное пиво" } },
   ],
   juice: [
-    { icon: "citrus", label: { me: "Pomorandža", en: "Orange", ru: "Апельсин" } },
-    { icon: "citrus", label: { me: "Limun", en: "Lemon", ru: "Лимон" } },
-    { icon: "citrus", label: { me: "Grejpfrut", en: "Grapefruit", ru: "Грейпфрут" } },
-    { icon: "apple", label: { me: "Jabuka", en: "Apple", ru: "Яблоко" } },
-    { icon: "blend", label: { me: "Mix", en: "Mixed juice", ru: "Микс" } },
+    { label: { me: "Limunada", en: "Lemonade", ru: "Лимонад" }, price: "2,20 €" },
+    { label: { me: "Cijeđeni sok", en: "Freshly squeezed juice", ru: "Свежевыжатый сок" }, price: "3,00 €" },
   ],
   breakfast: [
     { icon: "egg-fried", label: { me: "Atina doručak", en: "Atina breakfast", ru: "Завтрак Atina" } },
@@ -171,7 +182,7 @@ function iconMarkup(name) {
 
 function flagMarkup(code) {
   if (code === "me") {
-    return `<img class="flag-image" src="/public/flag-me.svg" alt="" aria-hidden="true" />`;
+    return `<img class="flag-image" src="/flag-me.svg" alt="" aria-hidden="true" />`;
   }
 
   if (code === "en") {
@@ -317,7 +328,7 @@ function header(text) {
   return `
     <header class="topbar">
       <button class="brand" type="button" data-route="/" aria-label="Atina 2">
-        <img src="/public/atina-logo.png" alt="Atina 2 restoran" />
+        <img src="/atina-logo.png" alt="Atina 2 restoran" />
       </button>
 
       <div class="toolbar">
@@ -439,8 +450,24 @@ function emptySection(route, text) {
               (item) => `
                 <article class="menu-item-card">
                   <span class="card-cap" aria-hidden="true"></span>
-                  <span class="item-icon">${iconMarkup(item.icon)}</span>
                   <strong>${item.label[lang]}</strong>
+                  ${item.price ? `<span class="item-price">${item.price}</span>` : ""}
+                  ${
+                    item.prices
+                      ? `<div class="item-price-list">
+                          ${item.prices
+                            .map(
+                              (price) => `
+                                <span class="item-price-row">
+                                  <small>${price.label[lang]}</small>
+                                  <b>${price.value}</b>
+                                </span>
+                              `,
+                            )
+                            .join("")}
+                        </div>`
+                      : ""
+                  }
                 </article>
               `,
             )
@@ -458,16 +485,16 @@ function render() {
   app.innerHTML = `
     <div class="app-frame">
       <div class="column-rail column-left" aria-hidden="true">
-        <img class="column" src="/public/atina-column-engraved.png" alt="" />
+        <img class="column" src="/atina-column-engraved.png" alt="" />
       </div>
       <div class="column-rail column-right" aria-hidden="true">
-        <img class="column" src="/public/atina-column-engraved.png" alt="" />
+        <img class="column" src="/atina-column-engraved.png" alt="" />
       </div>
       ${header(text)}
       ${route ? emptySection(route, text) : home(text)}
       ${
         splash !== "done"
-          ? `<div class="splash"><img class="intro-logo" src="/public/atina-logo.png" alt="Atina 2 restoran" /></div>`
+          ? `<div class="splash"><img class="intro-logo" src="/atina-logo.png" alt="Atina 2 restoran" /></div>`
           : ""
       }
     </div>

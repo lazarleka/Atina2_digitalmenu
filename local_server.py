@@ -10,6 +10,11 @@ class SpaHandler(SimpleHTTPRequestHandler):
         translated = Path(super().translate_path(path))
         if translated.exists():
             return str(translated)
+
+        public_asset = ROOT / "public" / path.lstrip("/")
+        if public_asset.exists():
+            return str(public_asset)
+
         return str(ROOT / "index.html")
 
 
