@@ -95,11 +95,11 @@ const MENU_ITEMS = {
     { label: { me: "Ultra", en: "Ultra", ru: "Ультра" }, price: "2,70 €" },
   ],
   wine: [
-    { label: { me: "M. Chardonnay", en: "M. Chardonnay", ru: "M. Шардоне" }, prices: [{ label: { me: "Čaša 0,187 l", en: "Glass 0.187 l", ru: "Бокал 0,187 л" }, value: "3,80 €" }, { label: { me: "Flaša 0,7 l", en: "Bottle 0.7 l", ru: "Бутылка 0,7 л" }, value: "18,00 €" }] },
-    { label: { me: "M. Rosé", en: "M. Rosé", ru: "M. Розе" }, prices: [{ label: { me: "Čaša 0,187 l", en: "Glass 0.187 l", ru: "Бокал 0,187 л" }, value: "3,80 €" }, { label: { me: "Flaša 0,7 l", en: "Bottle 0.7 l", ru: "Бутылка 0,7 л" }, value: "18,00 €" }] },
-    { label: { me: "M. Vranac", en: "M. Vranac", ru: "M. Вранац" }, prices: [{ label: { me: "Čaša 0,187 l", en: "Glass 0.187 l", ru: "Бокал 0,187 л" }, value: "3,80 €" }, { label: { me: "Flaša 0,7 l", en: "Bottle 0.7 l", ru: "Бутылка 0,7 л" }, value: "18,00 €" }] },
-    { label: { me: "M. Ž. Cuvée", en: "M. Ž. Cuvée", ru: "M. Ж. Кюве" }, prices: [{ label: { me: "Čaša 0,187 l", en: "Glass 0.187 l", ru: "Бокал 0,187 л" }, value: "5,00 €" }, { label: { me: "Flaša 0,7 l", en: "Bottle 0.7 l", ru: "Бутылка 0,7 л" }, value: "30,00 €" }] },
-    { label: { me: "M. Graševina", en: "M. Graševina", ru: "M. Грашевина" }, prices: [{ label: { me: "Čaša 0,187 l", en: "Glass 0.187 l", ru: "Бокал 0,187 л" }, value: "4,50 €" }, { label: { me: "Flaša 0,7 l", en: "Bottle 0.7 l", ru: "Бутылка 0,7 л" }, value: "26,00 €" }] },
+    { label: { me: "M. Chardonnay", en: "M. Chardonnay", ru: "M. Шардоне" }, prices: [{ label: { me:  "0,187 l", en: " 0.187 l", ru: " 0,187 л" }, value: "3,80 €" }, { label: { me: " 0,7 l", en: " 0.7 l", ru: " 0,7 л" }, value: "18,00 €" }] },
+    { label: { me: "M. Rosé", en: "M. Rosé", ru: "M. Розе" }, prices: [{ label: { me: " 0,187 l", en: " 0.187 l", ru: " 0,187 л" }, value: "3,80 €" }, { label: { me: " 0,7 l", en: " 0.7 l", ru: " 0,7 л" }, value: "18,00 €" }] },
+    { label: { me: "M. Vranac", en: "M. Vranac", ru: "M. Вранац" }, prices: [{ label: { me: " 0,187 l", en: " 0.187 l", ru: " 0,187 л" }, value: "3,80 €" }, { label: { me: " 0,7 l", en: " 0.7 l", ru: " 0,7 л" }, value: "18,00 €" }] },
+    { label: { me: "M. Ž. Cuvée", en: "M. Ž. Cuvée", ru: "M. Ж. Кюве" }, prices: [{ label: { me: " 0,187 l", en: " 0.187 l", ru: " 0,187 л" }, value: "5,00 €" }, { label: { me: " 0,7 l", en: " 0.7 l", ru: " 0,7 л" }, value: "30,00 €" }] },
+    { label: { me: "M. Graševina", en: "M. Graševina", ru: "M. Грашевина" }, prices: [{ label: { me: " 0,187 l", en: " 0.187 l", ru: " 0,187 л" }, value: "4,50 €" }, { label: { me: " 0,7 l", en: " 0.7 l", ru: " 0,7 л" }, value: "26,00 €" }] },
   ],
   aperitif: [
     { label: { me: "Amaro", en: "Amaro", ru: "Амаро" }, price: "2,70 €" },
