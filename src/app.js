@@ -176,33 +176,6 @@ let splash = "center";
 let splashStarted = false;
 document.body.classList.add("splash-active");
 
-let stableViewportWidth = window.innerWidth;
-let viewportResizeTimer;
-
-function lockColumnHeight() {
-  stableViewportWidth = window.innerWidth;
-  document.documentElement.style.setProperty("--column-viewport-height", `${window.innerHeight}px`);
-}
-
-lockColumnHeight();
-
-window.addEventListener("resize", () => {
-  const mobileLayout = window.matchMedia("(max-width: 820px)").matches;
-  const orientationChanged = Math.abs(window.innerWidth - stableViewportWidth) > 40;
-
-  if (mobileLayout && !orientationChanged) {
-    return;
-  }
-
-  clearTimeout(viewportResizeTimer);
-  viewportResizeTimer = setTimeout(lockColumnHeight, 160);
-});
-
-window.addEventListener("orientationchange", () => {
-  clearTimeout(viewportResizeTimer);
-  viewportResizeTimer = setTimeout(lockColumnHeight, 320);
-});
-
 function iconMarkup(name) {
   return `<i data-lucide="${name}" aria-hidden="true"></i>`;
 }
