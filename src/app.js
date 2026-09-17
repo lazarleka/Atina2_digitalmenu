@@ -96,8 +96,8 @@ const DRINKS = [
 const FOOD = [
   { key: "breakfast", icon: "egg-fried" },
   { key: "sandwiches", icon: "sandwich" },
-  { key: "tortillas", icon: "sandwich" },
-  { key: "appetizers", icon: "salad" },
+  { key: "tortillas", icon: "wrap" },
+  { key: "appetizers", icon: "bruschetta" },
   { key: "soups", icon: "soup" },
   { key: "pasta", icon: "utensils" },
   { key: "risotto", icon: "cooking-pot" },
@@ -134,11 +134,11 @@ const MENU_ITEMS = {
     { label: { me: "Ultra", en: "Ultra", ru: "Ультра" }, price: "2,70 €" },
   ],
   wine: [
-    { label: { me: "M. Chardonnay", en: "M. Chardonnay", ru: "M. Шардоне" }, prices: [{ label: { me:  "0,187 l", en: " 0.187 l", ru: " 0,187 л" }, value: "3,80 €" }, { label: { me: " 0,7 l", en: " 0.7 l", ru: " 0,7 л" }, value: "18,00 €" }] },
-    { label: { me: "M. Rosé", en: "M. Rosé", ru: "M. Розе" }, prices: [{ label: { me: " 0,187 l", en: " 0.187 l", ru: " 0,187 л" }, value: "3,80 €" }, { label: { me: " 0,7 l", en: " 0.7 l", ru: " 0,7 л" }, value: "18,00 €" }] },
-    { label: { me: "M. Vranac", en: "M. Vranac", ru: "M. Вранац" }, prices: [{ label: { me: " 0,187 l", en: " 0.187 l", ru: " 0,187 л" }, value: "3,80 €" }, { label: { me: " 0,7 l", en: " 0.7 l", ru: " 0,7 л" }, value: "18,00 €" }] },
-    { label: { me: "M. Ž. Cuvée", en: "M. Ž. Cuvée", ru: "M. Ж. Кюве" }, prices: [{ label: { me: " 0,187 l", en: " 0.187 l", ru: " 0,187 л" }, value: "5,00 €" }, { label: { me: " 0,7 l", en: " 0.7 l", ru: " 0,7 л" }, value: "30,00 €" }] },
-    { label: { me: "M. Graševina", en: "M. Graševina", ru: "M. Грашевина" }, prices: [{ label: { me: " 0,187 l", en: " 0.187 l", ru: " 0,187 л" }, value: "4,50 €" }, { label: { me: " 0,7 l", en: " 0.7 l", ru: " 0,7 л" }, value: "26,00 €" }] },
+    { label: { me: "Chardonnay", en: "Chardonnay", ru: "Шардоне" }, prices: [{ label: { me: "0,187 l", en: "0.187 l", ru: "0,187 л" }, value: "3,80 €" }, { label: { me: "0,7 l", en: "0.7 l", ru: "0,7 л" }, value: "18,00 €" }] },
+    { label: { me: "Rose", en: "Rosé", ru: "Розе" }, prices: [{ label: { me: "0,187 l", en: "0.187 l", ru: "0,187 л" }, value: "3,80 €" }, { label: { me: "0,7 l", en: "0.7 l", ru: "0,7 л" }, value: "18,00 €" }] },
+    { label: { me: "Vranac", en: "Vranac", ru: "Вранац" }, prices: [{ label: { me: "0,187 l", en: "0.187 l", ru: "0,187 л" }, value: "3,80 €" }, { label: { me: "0,7 l", en: "0.7 l", ru: "0,7 л" }, value: "18,00 €" }] },
+    { label: { me: "Ž. Cvet", en: "Ž. Cvet", ru: "Ž. Cvet" }, prices: [{ label: { me: "0,187 l", en: "0.187 l", ru: "0,187 л" }, value: "5,00 €" }, { label: { me: "0,7 l", en: "0.7 l", ru: "0,7 л" }, value: "30,00 €" }] },
+    { label: { me: "Graševina", en: "Graševina", ru: "Грашевина" }, prices: [{ label: { me: "0,187 l", en: "0.187 l", ru: "0,187 л" }, value: "4,50 €" }, { label: { me: "0,7 l", en: "0.7 l", ru: "0,7 л" }, value: "26,00 €" }] },
   ],
   aperitif: [
     { label: { me: "Amaro Montenegro ", en: "Amaro Montenegro", ru: "Amaro Montenegro" }, price: "2,70 €" },
@@ -276,6 +276,33 @@ if ("scrollRestoration" in history) {
 }
 
 function iconMarkup(name) {
+  if (name === "wrap") {
+    return `
+      <svg class="wrap-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M7 48C7 27 22 10 42 10s15 17 15 38c0 5-3 8-8 8H15c-5 0-8-3-8-8Z" />
+        <path d="M20 51c0-18 9-32 27-39" />
+        <circle cx="43" cy="39" r="2.3" fill="currentColor" stroke="none" />
+        <circle cx="49" cy="45" r="2.3" fill="currentColor" stroke="none" />
+        <circle cx="38" cy="46" r="2.3" fill="currentColor" stroke="none" />
+      </svg>
+    `;
+  }
+
+  if (name === "bruschetta") {
+    return `
+      <svg class="bruschetta-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="m7 34 4-16c1-4 10-5 13-1l5 17Z" />
+        <path d="m20 35 5-18c1-4 11-5 14-1l4 19Z" />
+        <circle cx="15" cy="25" r="2" />
+        <circle cx="32" cy="25" r="2" />
+        <circle cx="36" cy="31" r="1.5" />
+        <path d="M17 20c2-3 5-3 7-1-2 2-4 3-7 1Z" />
+        <path d="M6 39h37" />
+        <path d="M10 42h29" />
+      </svg>
+    `;
+  }
+
   return `<i data-lucide="${name}" aria-hidden="true"></i>`;
 }
 
