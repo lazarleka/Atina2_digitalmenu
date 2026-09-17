@@ -483,6 +483,21 @@ body.splash-arrived .brand img {
   letter-spacing: 0;
 }
 
+.item-quantity {
+  display: inline-block;
+  font-size: 0.7em;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.item-details {
+  margin: -4px 0 0;
+  color: #675b49;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  text-wrap: balance;
+}
+
 .item-price {
   color: #6f1d1b;
   font-family: Georgia, "Times New Roman", serif;
@@ -704,9 +719,13 @@ body.splash-finished .intro-logo {
   }
 
   .menu-item-card {
-    min-height: 96px;
+    min-height: 112px;
     gap: 10px;
     padding: 10px;
+  }
+
+  .item-details {
+    font-size: 0.74rem;
   }
 
   .menu-item-card strong {

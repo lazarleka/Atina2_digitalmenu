@@ -14,8 +14,17 @@ const COPY = {
       beer: "Pivo",
       juice: "Cijeđeni sokovi",
       breakfast: "Doručak",
-      main: "Glavna jela",
+      sandwiches: "Sendviči",
+      tortillas: "Tortilje",
+      appetizers: "Predjela",
+      soups: "Supe i čorbe",
+      pasta: "Paste",
+      risotto: "Rižoto",
+      madeToOrder: "Jela po narudžbi",
+      mealSalads: "Obrok salate",
+      seasonalSalads: "Sezonske salate",
       dessert: "Deserti",
+      extras: "Dodaci",
     },
   },
   en: {
@@ -32,8 +41,17 @@ const COPY = {
       beer: "Beer",
       juice: "Fresh juices",
       breakfast: "Breakfast",
-      main: "Main dishes",
+      sandwiches: "Sandwiches",
+      tortillas: "Tortillas",
+      appetizers: "Appetizers",
+      soups: "Soups",
+      pasta: "Pasta",
+      risotto: "Risotto",
+      madeToOrder: "Made-to-order dishes",
+      mealSalads: "Main course salads",
+      seasonalSalads: "Seasonal salads",
       dessert: "Desserts",
+      extras: "Side dishes",
     },
   },
   ru: {
@@ -50,8 +68,17 @@ const COPY = {
       beer: "Пиво",
       juice: "Свежие соки",
       breakfast: "Завтрак",
-      main: "Основные блюда",
+      sandwiches: "Сэндвичи",
+      tortillas: "Тортильи",
+      appetizers: "Закуски",
+      soups: "Супы",
+      pasta: "Паста",
+      risotto: "Ризотто",
+      madeToOrder: "Блюда на заказ",
+      mealSalads: "Сытные салаты",
+      seasonalSalads: "Сезонные салаты",
       dessert: "Десерты",
+      extras: "Гарниры",
     },
   },
 };
@@ -68,9 +95,21 @@ const DRINKS = [
 
 const FOOD = [
   { key: "breakfast", icon: "egg-fried" },
-  { key: "main", icon: "utensils-crossed" },
+  { key: "sandwiches", icon: "sandwich" },
+  { key: "tortillas", icon: "sandwich" },
+  { key: "appetizers", icon: "salad" },
+  { key: "soups", icon: "soup" },
+  { key: "pasta", icon: "utensils" },
+  { key: "risotto", icon: "cooking-pot" },
+  { key: "madeToOrder", icon: "chef-hat" },
+  { key: "mealSalads", icon: "salad" },
+  { key: "seasonalSalads", icon: "leaf" },
   { key: "dessert", icon: "cake-slice" },
+  { key: "extras", icon: "plus" },
 ];
+
+const tr = (me, en = me, ru = en) => ({ me, en, ru });
+const dish = (name, price, details = null) => ({ label: name, price, details });
 
 const MENU_ITEMS = {
   hot: [
@@ -136,27 +175,83 @@ const MENU_ITEMS = {
     { label: { me: "Pomorandža", en: "Fresh Orange juice", ru: "Свежевыжатый апельсиновый сок" }, price: "3,00 €" },
   ],
   breakfast: [
-    { icon: "egg-fried", label: { me: "Atina doručak", en: "Atina breakfast", ru: "Завтрак Atina" } },
-    { icon: "egg", label: { me: "Omlet", en: "Omelette", ru: "Омлет" } },
-    { icon: "egg-fried", label: { me: "Jaja na oko", en: "Fried eggs", ru: "Яичница" } },
-    { icon: "utensils", label: { me: "Kajgana", en: "Scrambled eggs", ru: "Яичница-болтунья" } },
-    { icon: "sandwich", label: { me: "Francuski tost", en: "French toast", ru: "Французский тост" } },
-    { icon: "croissant", label: { me: "Kroasan", en: "Croissant", ru: "Круассан" } },
+    dish(tr("Omlet šunka 350 g", "Ham omelette 350 g", "Омлет с ветчиной 350 г"), "4,30 €", tr("3 jaja, šunka, edamer sir, paradajz, domaći sir", "3 eggs, ham, Edam cheese, tomato, homemade cheese", "3 яйца, ветчина, сыр эдам, помидор, домашний сыр")),
+    dish(tr("Omlet pršuta 350 g", "Prosciutto omelette 350 g", "Омлет с пршутом 350 г"), "4,60 €", tr("3 jaja, pršuta, edamer sir, paradajz, domaći sir", "3 eggs, prosciutto, Edam cheese, tomato, homemade cheese", "3 яйца, пршут, сыр эдам, помидор, домашний сыр")),
+    dish(tr("Omlet povrće 350 g", "Vegetable omelette 350 g", "Овощной омлет 350 г"), "4,60 €", tr("3 jaja, crvena paprika, pečurke, tikvice", "3 eggs, red pepper, mushrooms, zucchini", "3 яйца, красный перец, грибы, кабачок")),
+    dish(tr("Crnogorski doručak 450 g", "Montenegrin breakfast 450 g", "Черногорский завтрак 450 г"), "6,00 €", tr("3 jaja, njeguška kobasica, njeguška pršuta, sir, masline, paradajz", "3 eggs, Njeguši sausage, Njeguši prosciutto, cheese, olives, tomato", "3 яйца, негушская колбаса, негушский пршут, сыр, оливки, помидор")),
+    dish(tr("Atina doručak 450 g", "Atina breakfast 450 g", "Завтрак Atina 450 г"), "6,50 €", tr("3 jaja, kobasica, pohovani kačkavalj, aromatični krompir, paradajz", "3 eggs, sausage, breaded cheese, seasoned potatoes, tomato", "3 яйца, колбаса, жареный сыр, ароматный картофель, помидор")),
+    dish(tr("Domaće priganice", "Homemade fritters", "Домашние приганице"), "4,80 €", tr("Feta sir, krem, džem, med", "Feta cheese, cream spread, jam, honey", "Сыр фета, крем, джем, мёд")),
+    dish(tr("Domaće pancerote", "Homemade pancerotti", "Домашние панцеротти"), "5,20 €", tr("Šunka, sir, paradajz sos", "Ham, cheese, tomato sauce", "Ветчина, сыр, томатный соус")),
+    dish(tr("Zdravi doručak", "Healthy breakfast", "Полезный завтрак"), "5,20 €", tr("Ovsena kaša, orašasti plodovi, mlijeko ili jogurt", "Oatmeal, nuts, milk or yogurt", "Овсяная каша, орехи, молоко или йогурт")),
   ],
-  main: [
-    { icon: "drumstick", label: { me: "Pileći file", en: "Chicken fillet", ru: "Куриное филе" } },
-    { icon: "beef", label: { me: "Biftek", en: "Beef steak", ru: "Стейк из говядины" } },
-    { icon: "fish", label: { me: "Riblji file", en: "Fish fillet", ru: "Рыбное филе" } },
-    { icon: "cooking-pot", label: { me: "Rižoto", en: "Risotto", ru: "Ризотто" } },
-    { icon: "utensils-crossed", label: { me: "Pasta", en: "Pasta", ru: "Паста" } },
-    { icon: "salad", label: { me: "Grilovano povrće", en: "Grilled vegetables", ru: "Овощи гриль" } },
+  sandwiches: [
+    dish(tr("Tost sendvič 350 g", "Toast sandwich 350 g", "Тост-сэндвич 350 г"), "4,50 €", tr("Šunka, sir, tartar sos, pomfrit", "Ham, cheese, tartar sauce, fries", "Ветчина, сыр, соус тартар, картофель фри")),
+    dish(tr("Tuna sendvič 350 g", "Tuna sandwich 350 g", "Сэндвич с тунцом 350 г"), "5,00 €", tr("Tunjevina u komadima, zelena salata, paradajz, biljni sir, pomfrit", "Tuna chunks, lettuce, tomato, plant-based cheese, fries", "Кусочки тунца, салат, помидор, растительный сыр, картофель фри")),
+    dish(tr("Atina sendvič 350 g", "Atina sandwich 350 g", "Сэндвич Atina 350 г"), "5,50 €", tr("Pohovana piletina, zelena salata, tartar sos, paradajz, pomfrit", "Breaded chicken, lettuce, tartar sauce, tomato, fries", "Курица в панировке, салат, соус тартар, помидор, картофель фри")),
+    dish(tr("Mornarski sendvič 350 g", "Sailor sandwich 350 g", "Матросский сэндвич 350 г"), "5,20 €", tr("Šunka, sir, kuvano jaje, svježi krastavac, majonez, pomfrit", "Ham, cheese, boiled egg, fresh cucumber, mayonnaise, fries", "Ветчина, сыр, варёное яйцо, свежий огурец, майонез, картофель фри")),
+  ],
+  tortillas: [
+    dish(tr("Tortilja sa piletinom 400 g", "Chicken tortilla 400 g", "Тортилья с курицей 400 г"), "6,50 €", tr("Piletina, pavlaka, paradajz, zelena salata, pomfrit", "Chicken, sour cream, tomato, lettuce, fries", "Курица, сметана, помидор, салат, картофель фри")),
+    dish(tr("Tortilja sa povrćem 400 g", "Vegetable tortilla 400 g", "Овощная тортилья 400 г"), "6,20 €", tr("Grilovano povrće, sir, tartar sos, pomfrit", "Grilled vegetables, cheese, tartar sauce, fries", "Овощи гриль, сыр, соус тартар, картофель фри")),
+    dish(tr("Tortilja sa biftekom 400 g", "Beefsteak tortilla 400 g", "Тортилья с бифштексом 400 г"), "7,50 €", tr("Grilovani biftek, luk, senf, paradajz, zelena salata, pomfrit", "Grilled beefsteak, onion, mustard, tomato, lettuce, fries", "Бифштекс гриль, лук, горчица, помидор, салат, картофель фри")),
+  ],
+  appetizers: [
+    dish(tr("Bruskete Caprese 300 g", "Caprese bruschetta 300 g", "Брускетта капрезе 300 г"), "5,30 €", tr("Paradajz, mocarela, bosiljak, začini", "Tomato, mozzarella, basil, spices", "Помидор, моцарелла, базилик, специи")),
+    dish(tr("Bruskete losos 300 g", "Salmon bruschetta 300 g", "Брускетта с лососем 300 г"), "6,50 €", tr("Losos, paradajz, bosiljak, začini", "Salmon, tomato, basil, spices", "Лосось, помидор, базилик, специи")),
+    dish(tr("Daska sireva 400 g", "Cheese board 400 g", "Сырная доска 400 г"), "14,50 €", tr("Tvrdi kravlji sir, koziji sir, njeguški sir", "Hard cow's cheese, goat cheese, Njeguši cheese", "Твёрдый коровий сыр, козий сыр, негушский сыр")),
+    dish(tr("Crnogorski pjat za dvoje 500 g", "Montenegrin platter for two 500 g", "Черногорское плато на двоих 500 г"), "18,00 €", tr("Njeguška pršuta, mješavina sireva, masline, kajmak", "Njeguši prosciutto, cheese selection, olives, kajmak", "Негушский пршут, ассорти сыров, оливки, каймак")),
+  ],
+  soups: [
+    dish(tr("Potaž dana", "Soup of the day", "Крем-суп дня"), "3,80 €"),
+    dish(tr("Teleća čorba", "Veal soup", "Суп из телятины"), "3,50 €"),
+  ],
+  pasta: [
+    dish(tr("Carbonara 400 g", "Carbonara 400 g", "Карбонара 400 г"), "8,00 €", tr("Taljatele, panceta, jaje, bijeli luk, sos", "Tagliatelle, pancetta, egg, garlic, sauce", "Тальятелле, панчетта, яйцо, чеснок, соус")),
+    dish(tr("Gambori i tikvice 400 g", "Prawns and zucchini 400 g", "Креветки и кабачок 400 г"), "10,50 €", tr("Taljatele, gambori, čeri paradajz, šafran, tikvice, bijelo vino, sos", "Tagliatelle, prawns, cherry tomato, saffron, zucchini, white wine, sauce", "Тальятелле, креветки, черри, шафран, кабачок, белое вино, соус")),
+    dish(tr("Biftek 400 g", "Beefsteak pasta 400 g", "Паста с бифштексом 400 г"), "12,50 €", tr("Taljatele, biftek, grilovano povrće, paradajz sos", "Tagliatelle, beefsteak, grilled vegetables, tomato sauce", "Тальятелле, бифштекс, овощи гриль, томатный соус")),
+    dish(tr("Quattro formaggi 400 g", "Quattro formaggi 400 g", "Четыре сыра 400 г"), "8,00 €", tr("Penne, parmezan, gorgonzola, mocarela, edamer", "Penne, parmesan, gorgonzola, mozzarella, Edam cheese", "Пенне, пармезан, горгонзола, моцарелла, сыр эдам")),
+    dish(tr("Penne sa povrćem 400 g", "Penne with vegetables 400 g", "Пенне с овощами 400 г"), "7,50 €", tr("Penne, grilovano povrće, paradajz sos", "Penne, grilled vegetables, tomato sauce", "Пенне, овощи гриль, томатный соус")),
+    dish(tr("Frutti di mare 400 g", "Frutti di mare 400 g", "Фрутти ди маре 400 г"), "8,50 €", tr("Taljatele, morski plodovi, crveni sos", "Tagliatelle, seafood, red sauce", "Тальятелле, морепродукты, красный соус")),
+    dish(tr("Pollo 400 g", "Pollo 400 g", "Полло 400 г"), "8,50 €", tr("Penne, piletina, tikvice, pavlaka za kuvanje", "Penne, chicken, zucchini, cooking cream", "Пенне, курица, кабачок, сливки")),
+  ],
+  risotto: [
+    dish(tr("Pollo 400 g", "Chicken risotto 400 g", "Ризотто с курицей 400 г"), "8,70 €", tr("Pirinač, grilovana piletina, povrće", "Rice, grilled chicken, vegetables", "Рис, курица гриль, овощи")),
+    dish(tr("Rižoto sa povrćem 400 g", "Vegetable risotto 400 g", "Овощное ризотто 400 г"), "7,50 €", tr("Pirinač, grilovano povrće, sos", "Rice, grilled vegetables, sauce", "Рис, овощи гриль, соус")),
+    dish(tr("Crni rižoto 400 g", "Black risotto 400 g", "Чёрное ризотто 400 г"), "10,50 €", tr("Riža, sipa, crnilo sipe, maslinovo ulje, crni i bijeli luk, tikvica, peršun, maslac, parmezan, bijelo vino", "Rice, cuttlefish, cuttlefish ink, olive oil, onion, garlic, zucchini, parsley, butter, parmesan, white wine", "Рис, каракатица, чернила каракатицы, оливковое масло, лук, чеснок, кабачок, петрушка, масло, пармезан, белое вино")),
+  ],
+  madeToOrder: [
+    dish(tr("Piletina na žaru 450 g", "Grilled chicken 450 g", "Курица на гриле 450 г"), "7,50 €", tr("Piletina, grilovano povrće, pomfrit", "Chicken, grilled vegetables, fries", "Курица, овощи гриль, картофель фри")),
+    dish(tr("Piletina u sosu od pečurki 400 g", "Chicken in mushroom sauce 400 g", "Курица в грибном соусе 400 г"), "8,50 €", tr("Piletina, pavlaka za kuvanje, pečurke, pomfrit", "Chicken, cooking cream, mushrooms, fries", "Курица, сливки, грибы, картофель фри")),
+    dish(tr("Piletina u gorgonzola sosu 400 g", "Chicken in gorgonzola sauce 400 g", "Курица в соусе горгонзола 400 г"), "9,50 €", tr("Piletina, pavlaka za kuvanje, pršuta, gorgonzola, pomfrit", "Chicken, cooking cream, prosciutto, gorgonzola, fries", "Курица, сливки, пршут, горгонзола, картофель фри")),
+    dish(tr("Hrskava piletina 450 g", "Crispy chicken 450 g", "Хрустящая курица 450 г"), "8,20 €", tr("Piletina, corn flakes, jaje, sos, pomfrit", "Chicken, corn flakes, egg, sauce, fries", "Курица, кукурузные хлопья, яйцо, соус, картофель фри")),
+    dish(tr("Bečka šnicla 350 g", "Viennese schnitzel 350 g", "Венский шницель 350 г"), "8,20 €", tr("Svinjski las kare, jaja, brašno, prezla, tartar sos, pomfrit", "Pork loin, eggs, flour, breadcrumbs, tartar sauce, fries", "Свиная корейка, яйца, мука, сухари, соус тартар, картофель фри")),
+    dish(tr("Podgorički popeci 400 g", "Podgorica-style pork rolls 400 g", "Подгорицкие попеци 400 г"), "11,50 €", tr("Svinjski las kare, kajmak, pršuta, tartar sos, pomfrit", "Pork loin, kajmak, prosciutto, tartar sauce, fries", "Свиная корейка, каймак, пршут, соус тартар, картофель фри")),
+    dish(tr("Atina burger 400 g", "Atina burger 400 g", "Бургер Atina 400 г"), "8,70 €", tr("Juneće meso, sir, paradajz, zelena salata, dresing, pomfrit", "Beef, cheese, tomato, lettuce, dressing, fries", "Говядина, сыр, помидор, салат, соус, картофель фри")),
+    dish(tr("Biftek u senf sosu 350 g", "Beefsteak in mustard sauce 350 g", "Бифштекс в горчичном соусе 350 г"), "26,00 €", tr("Biftek, senf, med, grilovano povrće, aromatični krompir", "Beefsteak, mustard, honey, grilled vegetables, seasoned potatoes", "Бифштекс, горчица, мёд, овощи гриль, ароматный картофель")),
+    dish(tr("Teleći medaljoni u sosu od pečurki 350 g", "Veal medallions in mushroom sauce 350 g", "Медальоны из телятины в грибном соусе 350 г"), "17,50 €", tr("Teletina, sos, pečurke, pekarski krompir", "Veal, sauce, mushrooms, roasted potatoes", "Телятина, соус, грибы, запечённый картофель")),
+    dish(tr("Atina daska za dvoje 500 g", "Atina platter for two 500 g", "Плато Atina на двоих 500 г"), "14,00 €", tr("Dvije vrste kobasice, pohovani pileći štapići, pomfrit, pekarski krompir, sos", "Two types of sausage, breaded chicken strips, fries, roasted potatoes, sauce", "Два вида колбасок, куриные палочки в панировке, картофель фри, запечённый картофель, соус")),
+  ],
+  mealSalads: [
+    dish(tr("Cezar salata 350 g", "Caesar salad 350 g", "Салат Цезарь 350 г"), "8,00 €", tr("Pileći file, slanina ili goveđa pršuta, zelena salata, čeri paradajz, dresing, krutoni, parmezan", "Chicken fillet, bacon or beef prosciutto, lettuce, cherry tomato, dressing, croutons, parmesan", "Куриное филе, бекон или говяжий пршут, салат, черри, соус, крутоны, пармезан")),
+    dish(tr("Salata sa gamborima 300 g", "Prawn salad 300 g", "Салат с креветками 300 г"), "9,80 €", tr("Gambori, miks zelenih salata, čeri paradajz, dresing, parmezan", "Prawns, mixed green salad, cherry tomato, dressing, parmesan", "Креветки, микс зелёных салатов, черри, соус, пармезан")),
+    dish(tr("Biftek salata 300 g", "Beefsteak salad 300 g", "Салат с бифштексом 300 г"), "9,80 €", tr("Biftek, miks zelenih salata, senf, med, čeri paradajz, krastavac, parmezan", "Beefsteak, mixed green salad, mustard, honey, cherry tomato, cucumber, parmesan", "Бифштекс, микс зелёных салатов, горчица, мёд, черри, огурец, пармезан")),
+  ],
+  seasonalSalads: [
+    dish(tr("Šopska salata 250 g", "Shopska salad 250 g", "Шопский салат 250 г"), "3,50 €", tr("Krastavac, crni luk, crvena paprika, paradajz, feta sir, maslinovo ulje", "Cucumber, onion, red pepper, tomato, feta cheese, olive oil", "Огурец, лук, красный перец, помидор, сыр фета, оливковое масло")),
+    dish(tr("Kupus salata 250 g", "Cabbage salad 250 g", "Салат из капусты 250 г"), "2,50 €"),
+    dish(tr("Miks zelenih salata 250 g", "Mixed green salad 250 g", "Микс зелёных салатов 250 г"), "2,50 €"),
+    dish(tr("Sezonska salata 250 g", "Seasonal salad 250 g", "Сезонный салат 250 г"), "2,50 €", tr("Miks sezonskog povrća", "Mixed seasonal vegetables", "Микс сезонных овощей")),
+    dish(tr("Pečena paprika, 2 kom", "Roasted peppers, 2 pcs", "Печёный перец, 2 шт."), "3,00 €"),
   ],
   dessert: [
-    { icon: "cake-slice", label: { me: "Baklava", en: "Baklava", ru: "Пахлава" } },
-    { icon: "cake", label: { me: "Kolač dana", en: "Cake of the day", ru: "Десерт дня" } },
-    { icon: "cake-slice", label: { me: "Cheesecake", en: "Cheesecake", ru: "Чизкейк" } },
-    { icon: "ice-cream-bowl", label: { me: "Sladoled", en: "Ice cream", ru: "Мороженое" } },
-    { icon: "cherry", label: { me: "Voćni tanjir", en: "Fruit plate", ru: "Фруктовая тарелка" } },
+    dish(tr("Slatke palačinke, 2 kom", "Sweet pancakes, 2 pcs", "Сладкие блинчики, 2 шт."), "3,50 €", tr("Nutella i Plazma, krem i Plazma ili džem", "Nutella and Plazma, cream and Plazma, or jam", "Nutella и Plazma, крем и Plazma или джем")),
+    dish(tr("Kolač", "Cake", "Десерт"), null),
+  ],
+  extras: [
+    dish(tr("Pomfrit 200 g", "French fries 200 g", "Картофель фри 200 г"), "2,80 €"),
+    dish(tr("Pekarski krompir", "Roasted potatoes", "Запечённый картофель"), "3,30 €"),
+    dish(tr("Miks", "Mix", "Микс"), "0,50 €"),
+    dish(tr("Kuver", "Cover charge", "Кувер"), "1,50 €"),
   ],
 };
 
@@ -178,6 +273,16 @@ document.body.classList.add("splash-active");
 
 function iconMarkup(name) {
   return `<i data-lucide="${name}" aria-hidden="true"></i>`;
+}
+
+function itemLabelMarkup(label) {
+  const quantity = label.match(/^(.*?)(?:,)?\s+(\d+(?:[.,]\d+)?\s*(?:g|kom|pcs|г|шт\.?))$/iu);
+
+  if (!quantity) {
+    return label;
+  }
+
+  return `${quantity[1]} <span class="item-quantity">(${quantity[2]})</span>`;
 }
 
 function flagMarkup(code) {
@@ -450,7 +555,8 @@ function emptySection(route, text) {
               (item) => `
                 <article class="menu-item-card">
                   <span class="card-cap" aria-hidden="true"></span>
-                  <strong>${item.label[lang]}</strong>
+                  <strong>${itemLabelMarkup(item.label[lang])}</strong>
+                  ${item.details ? `<p class="item-details">${item.details[lang]}</p>` : ""}
                   ${item.price ? `<span class="item-price">${item.price}</span>` : ""}
                   ${
                     item.prices
