@@ -271,6 +271,10 @@ let splash = "center";
 let splashStarted = false;
 document.body.classList.add("splash-active");
 
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+
 function iconMarkup(name) {
   return `<i data-lucide="${name}" aria-hidden="true"></i>`;
 }
@@ -302,12 +306,17 @@ function normalizePath() {
   return path === "/" ? "/" : path.replace(/\/$/, "");
 }
 
+function scrollToPageTop() {
+  requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: "auto" }));
+}
+
 function navigate(path) {
   history.pushState({}, "", path);
   languageOpen = false;
   burgerOpen = false;
   burgerPanel = null;
   render();
+  scrollToPageTop();
 }
 
 function wait(milliseconds) {
@@ -657,5 +666,8 @@ document.addEventListener("click", (event) => {
   }
 });
 
-window.addEventListener("popstate", render);
+window.addEventListener("popstate", () => {
+  render();
+  scrollToPageTop();
+});
 render();
