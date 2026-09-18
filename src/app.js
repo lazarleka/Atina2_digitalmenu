@@ -337,8 +337,13 @@ function scrollToPageTop() {
   requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: "auto" }));
 }
 
+function restoreScrollPosition(position = 0) {
+  requestAnimationFrame(() => window.scrollTo({ top: position, left: 0, behavior: "auto" }));
+}
+
 function navigate(path) {
-  history.pushState({}, "", path);
+  history.replaceState({ ...history.state, scrollY: window.scrollY }, "", window.location.href);
+  history.pushState({ appNavigation: true, scrollY: 0 }, "", path);
   languageOpen = false;
   burgerOpen = false;
   burgerPanel = null;
@@ -578,7 +583,7 @@ function emptySection(route, text) {
     <main class="page-shell category-shell">
       <section class="category-section">
         <div class="category-back-row">
-          <button class="back-link" type="button" data-route="/" aria-label="${text.back}">←</button>
+          <button class="back-link" type="button" data-history-back aria-label="${text.back}">←</button>
         </div>
         <div class="section-title category-section-title">
           <span></span>
@@ -650,6 +655,15 @@ function render() {
 }
 
 document.addEventListener("click", (event) => {
+  if (event.target.closest("[data-history-back]")) {
+    if (history.state?.appNavigation && history.length > 1) {
+      history.back();
+    } else {
+      navigate("/");
+    }
+    return;
+  }
+
   const routeButton = event.target.closest("[data-route]");
   if (routeButton) {
     navigate(routeButton.dataset.route);
@@ -693,8 +707,8 @@ document.addEventListener("click", (event) => {
   }
 });
 
-window.addEventListener("popstate", () => {
+window.addEventListener("popstate", (event) => {
   render();
-  scrollToPageTop();
+  restoreScrollPosition(event.state?.scrollY ?? 0);
 });
 render();
