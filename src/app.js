@@ -12,6 +12,8 @@ const COPY = {
       aperitif: "Aperitivi",
       spirits: "Žestoka pića",
       beer: "Pivo",
+      cider: "Cider",
+      cocktails: "Kokteli",
       juice: "Cijeđeni sokovi",
       breakfast: "Doručak",
       sandwiches: "Sendviči",
@@ -39,6 +41,8 @@ const COPY = {
       aperitif: "Aperitifs",
       spirits: "Spirits",
       beer: "Beer",
+      cider: "Cider",
+      cocktails: "Cocktails",
       juice: "Fresh juices",
       breakfast: "Breakfast",
       sandwiches: "Sandwiches",
@@ -66,6 +70,8 @@ const COPY = {
       aperitif: "Аперитивы",
       spirits: "Крепкие напитки",
       beer: "Пиво",
+      cider: "Сидр",
+      cocktails: "Коктейли",
       juice: "Свежие соки",
       breakfast: "Завтрак",
       sandwiches: "Сэндвичи",
@@ -90,6 +96,8 @@ const DRINKS = [
   { key: "aperitif", icon: "martini" },
   { key: "spirits", icon: "glass-water" },
   { key: "beer", icon: "beer" },
+  { key: "cider", icon: "cider-glass" },
+  { key: "cocktails", icon: "spritz-glass" },
   { key: "juice", icon: "citrus" },
 ];
 
@@ -164,11 +172,19 @@ const MENU_ITEMS = {
     { label: { me: "Travarica", en: "Herbal rakija", ru: "Травяная ракия" }, price: "2,70 €" },
   ],
   beer: [
-    { icon: "beer", label: { me: "Točeno pivo", en: "Draft beer", ru: "Разливное пиво" } },
-    { icon: "beer", label: { me: "Lager", en: "Lager", ru: "Лагер" } },
-    { icon: "beer", label: { me: "Tamno pivo", en: "Dark beer", ru: "Тёмное пиво" } },
-    { icon: "beer", label: { me: "Pšenično pivo", en: "Wheat beer", ru: "Пшеничное пиво" } },
-    { icon: "beer", label: { me: "Bezalkoholno pivo", en: "Non-alcoholic beer", ru: "Безалкогольное пиво" } },
+    dish(tr("Carlsberg", "Carlsberg", "Карлсберг"), "3,20 €", tr("0,25 l", "0.25 l", "0,25 л")),
+    dish(tr("Tuborg", "Tuborg", "Туборг"), "2,80 €", tr("0,33 l", "0.33 l", "0,33 л")),
+    dish(tr("Budweiser", "Budweiser", "Будвайзер"), "3,30 €", tr("0,33 l", "0.33 l", "0,33 л")),
+    dish(tr("Blanc", "Blanc", "Бланк"), "3,30 €", tr("0,33 l", "0.33 l", "0,33 л")),
+    dish(tr("Erdinger", "Erdinger", "Эрдингер"), "3,50 €", tr("0,33 l", "0.33 l", "0,33 л")),
+    dish(tr("Točeno Carlsberg", "Draft Carlsberg", "Разливной Карлсберг"), "2,80 €", tr("0,2 l", "0.2 l", "0,2 л")),
+    dish(tr("Točeno Carlsberg", "Draft Carlsberg", "Разливной Карлсберг"), "3,80 €", tr("0,5 l", "0.5 l", "0,5 л")),
+  ],
+  cider: [
+    dish(tr("Somersby", "Somersby", "Сомерсби"), "3,50 €", tr("0,33 l", "0.33 l", "0,33 л")),
+  ],
+  cocktails: [
+    dish(tr("Aperol spritz", "Aperol spritz", "Апероль шприц"), "7,50 €", tr("0,2 l", "0.2 l", "0,2 л")),
   ],
   juice: [
     { label: { me: "Limunada", en: "Lemonade", ru: "Лимонад" }, price: "2,20 €" },
@@ -276,6 +292,27 @@ if ("scrollRestoration" in history) {
 }
 
 function iconMarkup(name) {
+  if (name === "cider-glass") {
+    return `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M7 3h10l-.8 7.3c-.3 3-1.5 4.7-4.2 4.7s-3.9-1.7-4.2-4.7L7 3ZM8 8h8M12 15v6M8.5 21h7" />
+        <circle cx="10" cy="11" r=".6" fill="currentColor" stroke="none" />
+        <circle cx="13" cy="9.8" r=".6" fill="currentColor" stroke="none" />
+        <circle cx="12" cy="12.5" r=".6" fill="currentColor" stroke="none" />
+      </svg>
+    `;
+  }
+
+  if (name === "spritz-glass") {
+    return `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4.5 6.5h13c0 6-1.8 10-6.5 10s-6.5-4-6.5-10ZM11 16.5V22M7.5 22h7" />
+        <path d="M5.5 11h11M8 12.5l1.5 1.5 1.5-1.5M12 12.5l1.5 1.5 1.5-1.5" />
+        <path d="M15 6.5a3.5 3.5 0 0 1 7 0h-7ZM18.5 3v3.5M16.1 4l2.4 2.5M20.9 4l-2.4 2.5" />
+      </svg>
+    `;
+  }
+
   if (name === "wrap") {
     return `
       <svg class="wrap-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
