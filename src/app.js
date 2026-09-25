@@ -159,7 +159,8 @@ const MENU_ITEMS = {
     { label: { me: "Prvijenac", en: "Prvijenac", ru: "Првийенац" }, price: "3,00 €" },
     { label: { me: "Viljamovka", en: "Pear rakija", ru: "Грушевая ракия" }, price: "2,50 €" },
     { label: { me: "Dunja / Kajsija", en: "Quince / Apricot rakija", ru: "Айва / Абрикосовая ракия" }, price: "2,70 €" },
-    { label: { me: "Peach šljiva", en: "Peach plum", ru: "Персик-слива" }, price: "3,30 €" },
+    { label: { me: "Desetka šljiva", en: "Desetka plum rakija", ru: "Сливовая ракия Desetka" }, price: "3,30 €" },
+    { label: { me: "Zarić Kraljica šljiva", en: "Zarić Kraljica plum rakija", ru: "Сливовая ракия Zarić Kraljica" }, price: "3,30 €" },
     { label: { me: "Smirnoff", en: "Smirnoff", ru: "Смирнофф" }, price: "2,70 €" },
     { label: { me: "Gin", en: "Gin", ru: "Джин" }, price: "2,70 €" },
     { label: { me: "Red Label", en: "Red Label", ru: "Ред Лейбл" }, price: "3,00 €" },
@@ -169,7 +170,6 @@ const MENU_ITEMS = {
     { label: { me: "Chivas", en: "Chivas", ru: "Чивас" }, price: "4,00 €" },
     { label: { me: "Jameson", en: "Jameson", ru: "Джемесон" }, price: "3,30 €" },
     { label: { me: "Jägermeister", en: "Jägermeister", ru: "Егермейстер" }, price: "2,70 €" },
-    { label: { me: "Travarica", en: "Herbal rakija", ru: "Травяная ракия" }, price: "2,70 €" },
   ],
   beer: [
     dish(tr("Carlsberg", "Carlsberg", "Карлсберг"), "3,20 €", tr("0,25 l", "0.25 l", "0,25 л")),
